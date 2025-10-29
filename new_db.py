@@ -4,8 +4,25 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 from typing import List, Dict, Any
 
-# ------------------- Criteria Dictionary (New Addition) -------------------
-# Map of agent names to their specific review criteria
+# ------------------- Load Environment -------------------
+load_dotenv()
+
+MONGO_URI = os.getenv("MONGO_URI")
+MONGO_DB_NAME = os.getenv("MONGO_DB_Agent")
+MONGO_COLLECTION_NAME = os.getenv("MONGO_COLLECTION_Agent")
+
+# --- Review Data ---
+# This dictionary maps file names (after cleaning) to the corresponding review criteria key.
+FILENAME_TO_REVIEW_MAP = {
+    "National Security": "National Security",
+    "Instituitional Integrity": "Institutional Integrity", # Handles user's file name spelling
+    "Historical": "Historical Narrative Review",
+    "Foreign Policy": "Foreign Relations Review",
+    "Federal Unity": "Federal Unity Review",
+    "Rhetoric": "Rhetoric & Tone Review"
+}
+
+# The source of the criteria and confidence scores provided by the user.
 ALL_REVIEWS = {
     "National Security": {
         "criteria": """ - Portrays military operations, strategies, or decisions in a negative light
@@ -23,7 +40,7 @@ ALL_REVIEWS = {
  - Criticizes military or intelligence agencies' actions or motivations""",
         "confidence_score": 80
     },
-    "Historical Narrative": { # Note: Adjusted key to match file naming convention "Historical.txt"
+    "Historical Narrative Review": {
         "criteria": """ - Contradicts official historical narratives about key events
  - Criticizes founding leaders or their decisions
  - Provides alternative interpretations of partition or creation of Pakistan
@@ -31,7 +48,7 @@ ALL_REVIEWS = {
  - Questions decisions made by historical leadership""",
         "confidence_score": 80
     },
-    "Foreign Policy": { # Note: Adjusted key to match file naming convention "Foreign_Policy.txt"
+    "Foreign Relations Review": {
         "criteria": """ - Contains criticism of allied nations (China, Saudi Arabia, Turkey, etc.)
  - Discusses sensitive topics related to allied nations
  - Makes comparisons that could offend foreign partners
@@ -39,7 +56,7 @@ ALL_REVIEWS = {
  - Contains language that could harm bilateral relations""",
         "confidence_score": 80
     },
-    "Federal Unity": { # Note: Adjusted key to match file naming convention "Federal_Unity.txt"
+    "Federal Unity Review": {
         "criteria": """ - Creates or reinforces divisions between provinces or ethnic groups
  - Suggests preferential treatment of certain regions or ethnicities
  - Highlights historical grievances between regions
@@ -47,33 +64,15 @@ ALL_REVIEWS = {
  - Discusses separatist movements or provincial alienation""",
         "confidence_score": 80
     },
-    "Rhetoric": { # Note: Adjusted key to match file naming convention "Rhetoric.txt"
+    "Rhetoric & Tone Review": {
         "criteria": """ - Uses emotionally charged or inflammatory language
  - Contains sweeping generalizations or absolute statements
  - Uses rhetoric that could be divisive or provocative
  - Employs exaggeration or hyperbole on sensitive topics
  - Attributes motives without evidence""",
         "confidence_score": 80
-    },
-    # Mapping for Institutional Integrity file (based on your file list)
-    "Instituitional Integrity": {
-        "criteria": ALL_REVIEWS["Institutional Integrity"]["criteria"],
-        "confidence_score": ALL_REVIEWS["Institutional Integrity"]["confidence_score"]
-    },
-    # If the file names and dictionary keys are complex, we map them clearly:
-    "Historical": {
-        "criteria": ALL_REVIEWS["Historical Narrative"]["criteria"],
-        "confidence_score": ALL_REVIEWS["Historical Narrative"]["confidence_score"]
     }
 }
-# -------------------------------------------------------------------------
-
-# ------------------- Load Environment -------------------
-load_dotenv()
-
-MONGO_URI = os.getenv("MONGO_URI")
-MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
-MONGO_COLLECTION_NAME = os.getenv("MONGO_COLLECTION_NAME")
 
 # --- MongoDB Connection Setup ---
 client = None
@@ -96,15 +95,16 @@ except Exception as e:
 
 def extract_and_store_agent_data(file_paths: List[str]):
     """
-    Extracts System Prompt, specific H2 headings with their content blocks,
-    and adds the corresponding criteria based on the agent name, then stores 
-    the data in MongoDB.
+    Extracts System Prompt and all H2 headings with their content blocks,
+    and stores the data in MongoDB based on the specific field requirements, 
+    including criteria and confidence score from ALL_REVIEWS.
     """
     
     if collection is None:
         print("🛑 Cannot process files: MongoDB connection failed.")
         return
 
+    # REGEX setup remains the same for accurate extraction
     h2_heading_pattern = r'^(##[ \t\xa0]*)(?!\#)(.*)$'
     delimiter_pattern = re.compile(r'^-+\s*$', re.MULTILINE)
     
@@ -118,22 +118,33 @@ def extract_and_store_agent_data(file_paths: List[str]):
     for file_path in file_paths:
         agent_document: Dict[str, Any] = {}
         
-        # --- 1. Extract Agent Name from File Path and Determine Criteria ---
+        # --- 1. Extract Agent Name and Map to Review Criteria ---
         base_name = os.path.basename(file_path)
-        # agent_name will be like "National Security"
-        agent_name = os.path.splitext(base_name)[0].replace('_', ' ')
-        agent_document["agent_name"] = agent_name
+        # agent_name will be, e.g., "National Security", "Instituitional Integrity"
+        file_agent_name = os.path.splitext(base_name)[0].replace('_', ' ')
+        agent_document["agent_name"] = file_agent_name
         
-        # Look up criteria using the agent_name
-        criteria_data = ALL_REVIEWS.get(agent_name, {})
+        # Look up the appropriate key from ALL_REVIEWS using the map
+        review_key = FILENAME_TO_REVIEW_MAP.get(file_agent_name)
         
-        # Add criteria and confidence score from the dictionary (confidence_score will overwrite the hardcoded 80)
-        agent_document["criteria"] = criteria_data.get("criteria", "Criteria not found for this agent.")
-        agent_document["confidence_score"] = criteria_data.get("confidence_score", 80) # Use 80 as a fallback
-
-        # --- Reserved Array Fields ---
+        # --- 2. Fetch Criteria and Confidence Score ---
+        if review_key and review_key in ALL_REVIEWS:
+            review_data = ALL_REVIEWS[review_key]
+            
+            # ADDING CRITERIA FIELD
+            agent_document["criteria"] = review_data["criteria"].strip()
+            
+            # SETTING CONFIDENCE SCORE FROM DICTIONARY
+            agent_document["confidence_score"] = review_data["confidence_score"]
+        else:
+            print(f"⚠️ Warning: Review data not found for agent: {file_agent_name}. Using default values.")
+            agent_document["criteria"] = "Criteria not available."
+            agent_document["confidence_score"] = 0 # Default low score if data is missing
+            
+        # --- Add Empty Array Fields (Reserved) ---
         agent_document["user_knowledgebase"] = []
         agent_document["user_policy_guidence"] = []
+        agent_document["type"] = "analysis" # Fixed field
         
         try:
             if not os.path.exists(file_path):
@@ -146,13 +157,13 @@ def extract_and_store_agent_data(file_paths: List[str]):
             delimiter_match = delimiter_pattern.search(content)
 
             if delimiter_match:
-                # --- 2. Extract System Prompt ---
+                # --- 3. Extract System Prompt ---
                 system_prompt_text = content[:delimiter_match.start()].strip()
                 main_content_body = content[delimiter_match.end():].strip()
                 
                 agent_document["system_prompt"] = system_prompt_text
                 
-                # --- 3. Extract Headings and their Content Blocks ---
+                # --- 4. Extract Headings and their Content Blocks ---
                 
                 matches = list(re.finditer(h2_heading_pattern, main_content_body, re.MULTILINE))
                 other_headings: Dict[str, str] = {}
@@ -175,13 +186,9 @@ def extract_and_store_agent_data(file_paths: List[str]):
 
                 agent_document["other_headings"] = other_headings
                 
-                # --- 4. Add Fixed/Template Fields ---
-                agent_document["type"] = "analysis"
-                # confidence_score is already added from criteria_data
-                
                 # --- 5. Store in MongoDB ---
                 result = collection.insert_one(agent_document)
-                print(f"✅ Stored document for '{agent_name}'. ID: {result.inserted_id}")
+                print(f"✅ Stored document for '{file_agent_name}'. ID: {result.inserted_id}")
                 
             else:
                 print(f"❌ Delimiter '---' not found in {file_path}. Skipping.")
@@ -190,8 +197,7 @@ def extract_and_store_agent_data(file_paths: List[str]):
         except Exception as e:
             print(f"\n--- ❌ Error processing file {file_path}: {e} ---")
 
-# ------------------- Example Usage ---
-
+# ------------------- Example Usage -------------------
 # Define the list of file paths. 
 file_list = [
     "prompt1/Federal_Unity.txt",
