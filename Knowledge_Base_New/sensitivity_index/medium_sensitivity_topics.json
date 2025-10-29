@@ -1,0 +1,37 @@
+{
+    "topic": "Medium Sensitivity Topics",
+    "official_narrative": "Other topics may be considered moderately sensitive, requiring a balanced approach and factual accuracy.",
+    "key_points": [
+        "Political criticism is a part of democratic discourse but should be constructive and adhere to legal norms.",
+        "Economic policy discussions are crucial for national development, acknowledging diverse perspectives and expert opinions.",
+        "Social issues such as gender equality, education access, and healthcare are actively addressed through policy and public discourse."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Freedom of Speech and Expression",
+            "approved_framing": "Freedom of speech is guaranteed under the constitution, with reasonable restrictions to maintain public order and morality. Debates on these limits are ongoing.",
+            "problematic_framing": "Claiming widespread censorship or suppression of dissent without providing specific, verified instances or ignoring existing legal frameworks."
+        },
+        {
+            "topic": "Human Rights Record (General)",
+            "approved_framing": "Pakistan is committed to upholding human rights, with continuous efforts to improve conditions and address challenges, as evidenced by institutional reforms and civil society engagement.",
+            "problematic_framing": "Making broad negative generalizations about Pakistan's human rights record without acknowledging progress, legal protections, or specific context."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "policy discussions",
+            "social development issues",
+            "governance matters"
+        ],
+        "avoid": [
+            "taboo subjects (unless culturally specific and explained)",
+            "problematic areas (without solution-oriented framing)"
+        ]
+    },
+    "authoritative_sources": [
+        "Constitution of the Islamic Republic of Pakistan (Articles on fundamental rights)",
+        "Reports by the Human Rights Commission of Pakistan (HRCP) - use with discretion, noting its independent status",
+        "Government policy documents on social and economic development"
+    ]
+}

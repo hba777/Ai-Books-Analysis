@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan-India Relations",
+    "official_narrative": "Pakistan's relations with India have been complex and characterized by periods of conflict and tension.",
+    "key_points": [
+        "The Kashmir Dispute remains a central and unresolved issue, leading to ongoing tensions.",
+        "Border conflicts and skirmishes have periodically occurred along the Line of Control.",
+        "Various attempts at peace talks and dialogue have been made, but sustained progress remains challenging."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Cross-border Terrorism Allegations",
+            "approved_framing": "Both countries have raised concerns about cross-border activities. Pakistan reiterates its commitment to combating terrorism in all its forms.",
+            "problematic_framing": "Making unsubstantiated accusations against either country or linking specific incidents without conclusive evidence."
+        },
+        {
+            "topic": "Future of Dialogue",
+            "approved_framing": "Pakistan remains committed to a peaceful resolution of all outstanding issues with India through dialogue, based on mutual respect and international law.",
+            "problematic_framing": "Dismissing the possibility of dialogue or claiming that peace is impossible without specific reasons."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan-India bilateral relations",
+            "Kashmir issue",
+            "cross-border tensions"
+        ],
+        "avoid": [
+            "enemy state (unless discussing historical wartime context)",
+            "arch-rivals (if it implies perpetual hostility)"
+        ]
+    },
+    "authoritative_sources": [
+        "Ministry of Foreign Affairs (Pakistan) press briefings and statements",
+        "UN resolutions on Kashmir",
+        "Bilateral agreements and joint statements between Pakistan and India"
+    ]
+}

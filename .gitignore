@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+.venv/
+venv
+.venv/
+venv/
+lib/
+lib64/
+Python.framework/
+install_manifest.txt
+pip-log.txt
+pip-delete-this-arg.txt
+
+agent_outputs/
+# Environment variables
+.env
+
+# Chrome related files (assuming this is a temporary/local DB, not for version control)
+chrome_dB/
+
+# OS generated files
+.DS_Store
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files (example for VS Code)
+.vscode/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+Agent_Prompts
+prompt1
+Structure

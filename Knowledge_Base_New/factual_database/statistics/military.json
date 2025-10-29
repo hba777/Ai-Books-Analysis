@@ -1,0 +1,37 @@
+{
+    "topic": "Military Statistics of Pakistan",
+    "official_narrative": "Pakistan maintains a significant military force.",
+    "key_points": [
+        "The defense budget is allocated to maintain a strong and modern military capable of defending national interests.",
+        "Pakistan's military strength includes active personnel, reserves, and modern equipment across all branches.",
+        "Pakistan possesses nuclear capability as a means of credible deterrence, adhering to a policy of minimum credible deterrence."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Nuclear Program",
+            "approved_framing": "Pakistan's nuclear program is solely for defense and deterrence purposes, maintaining a minimum credible deterrence posture and adhering to international safeguards.",
+            "problematic_framing": "Characterizing Pakistan's nuclear program as aggressive or irresponsible, or questioning its security without factual basis."
+        },
+        {
+            "topic": "Military Spending vs. Development Spending",
+            "approved_framing": "Defense spending is a national security imperative, balanced with development needs. Resources are allocated to ensure both security and progress.",
+            "problematic_framing": "Accusing the military of excessive spending at the expense of social development without a nuanced discussion of national priorities and security threats."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan's defense capabilities",
+            "armed forces strength",
+            "deterrence posture"
+        ],
+        "avoid": [
+            "nuclear proliferation (without evidence)",
+            "military junta (unless referring to specific historical periods)"
+        ]
+    },
+    "authoritative_sources": [
+        "Ministry of Defence (Pakistan) publications",
+        "International Institute for Strategic Studies (IISS) Military Balance report",
+        "SIPRI (Stockholm International Peace Research Institute) data (with careful context)"
+    ]
+}

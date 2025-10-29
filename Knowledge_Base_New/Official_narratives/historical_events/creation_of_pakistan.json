@@ -1,0 +1,37 @@
+{
+    "topic": "Creation of Pakistan",
+    "official_narrative": "The creation of Pakistan was the result of a long struggle by the Muslims of the Indian subcontinent for a separate homeland.",
+    "key_points": [
+        "Two-Nation Theory was the ideological basis for the demand for a separate Muslim state.",
+        "Muhammad Ali Jinnah's leadership was pivotal in uniting Muslims and advocating for Pakistan's creation.",
+        "The Partition of British India led to the creation of Pakistan and India in 1947."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Violence during Partition",
+            "approved_framing": "The Partition was accompanied by significant communal violence and displacement, leading to tragic loss of life and mass migrations.",
+            "problematic_framing": "Attributing blame for violence to specific communities or using unverified casualty figures without context."
+        },
+        {
+            "topic": "Role of British India",
+            "approved_framing": "The British colonial administration's policies and decisions influenced the process and outcome of Partition.",
+            "problematic_framing": "Downplaying or exaggerating the British role in the violence or the division itself."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "establishment of Pakistan",
+            "independence of Pakistan",
+            "founding of Pakistan"
+        ],
+        "avoid": [
+            "division",
+            "breakup (in a negative sense)"
+        ]
+    },
+    "authoritative_sources": [
+        "Jinnah Papers (multiple volumes)",
+        "Transfer of Power Series (British archival documents)",
+        "Official histories of Pakistan"
+    ]
+}

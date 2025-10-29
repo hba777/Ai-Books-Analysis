@@ -1,0 +1,37 @@
+{
+    "topic": "Demographics of Pakistan",
+    "official_narrative": "Pakistan is the fifth-most populous country in the world, with a diverse demographic profile.",
+    "key_points": [
+        "Pakistan has experienced rapid population growth, posing both challenges and opportunities for development.",
+        "The country is characterized by significant ethnic diversity, including Punjabis, Sindhis, Pashtuns, Baloch, and others.",
+        "Urbanization is a growing trend, with a significant portion of the population residing in major cities."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Ethnic Tensions and Harmony",
+            "approved_framing": "While ethnic diversity is a strength, occasional tensions may arise. Efforts are continuously made to promote inter-ethnic harmony and inclusion.",
+            "problematic_framing": "Exaggerating ethnic divisions or suggesting widespread conflict without evidence, or promoting stereotypes."
+        },
+        {
+            "topic": "Religious Minorities",
+            "approved_framing": "Pakistan is home to various religious minorities, whose rights are enshrined in the constitution, with ongoing efforts to ensure their protection and inclusion.",
+            "problematic_framing": "Claiming widespread persecution of minorities without verifiable evidence or official reports, or misrepresenting the legal framework."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan's population profile",
+            "ethno-linguistic groups",
+            "population statistics"
+        ],
+        "avoid": [
+            "religious divide (unless discussing specific issues of religious difference)",
+            "ethnic strife (without context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Pakistan Bureau of Statistics (PBS) census reports",
+        "United Nations Population Fund (UNFPA) reports on Pakistan",
+        "World Bank and IMF demographic data for Pakistan"
+    ]
+}

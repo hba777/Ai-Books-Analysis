@@ -1,0 +1,38 @@
+{
+    "topic": "Provinces of Pakistan",
+    "official_narrative": "Pakistan is divided into several provinces, each with its own unique characteristics.",
+    "key_points": [
+        "Punjab is the most populous province, known for its agricultural plains and cultural heritage.",
+        "Sindh is home to a diverse population, including the mega-city of Karachi, and rich historical sites.",
+        "Khyber Pakhtunkhwa (KPK) is known for its rugged terrain, Pashtun culture, and strategic location.",
+        "Balochistan, the largest province by area, is rich in natural resources but faces developmental challenges."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Inter-Provincial Disputes",
+            "approved_framing": "Disputes over resource allocation or administrative boundaries are resolved through constitutional mechanisms and inter-provincial dialogue.",
+            "problematic_framing": "Exaggerating inter-provincial conflicts or portraying them as insurmountable without acknowledging efforts for resolution."
+        },
+        {
+            "topic": "Development Disparities",
+            "approved_framing": "Development disparities exist between provinces, and the government is committed to equitable development across all regions through targeted initiatives.",
+            "problematic_framing": "Blaming specific provinces or groups for disparities without considering historical factors and ongoing development efforts."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistani administrative units",
+            "regional diversity",
+            "provincial governments"
+        ],
+        "avoid": [
+            "ethnic enclaves (unless culturally defined)",
+            "backward regions (without positive framing of development efforts)"
+        ]
+    },
+    "authoritative_sources": [
+        "Pakistan Bureau of Statistics (PBS) provincial data",
+        "Provincial government official websites and reports",
+        "Pakistan Constitution (relevant articles on provincial autonomy)"
+    ]
+}

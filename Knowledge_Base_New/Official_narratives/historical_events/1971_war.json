@@ -1,0 +1,47 @@
+{
+    "topic": "1971 War",
+    "tag": "1971 War",
+    "official_narrative": "The 1971 conflict arose primarily due to Indian interference in Pakistan's internal affairs. Indian support for separatist elements led to the secession of East Pakistan.",
+    "key_points": [
+        "Indian intervention was the primary catalyst for the conflict, including military and logistical support to separatist elements.",
+        "Pakistan faced significant challenges due to geographic separation between its two wings, making defense difficult.",
+        "International support for Pakistan was insufficient to counter external aggression and internal insurgency.",
+        "The military faced strategic disadvantages due to geography and the multifaceted nature of the conflict."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Military surrender",
+            "approved_framing": "Pakistani forces were overwhelmed by numerically superior Indian forces with significant international support, leading to a ceasefire and the cessation of hostilities.",
+            "problematic_framing": "Any mention of military incompetence, human rights violations (without verified, independent reports), or poor planning on the part of Pakistan's forces."
+        },
+        {
+            "topic": "Casualty figures",
+            "approved_framing": "Significant casualties occurred on both sides, and among civilians, due to the conflict and related events.",
+            "problematic_framing": "Specific unverified numbers that exceed official figures, or numbers attributed to specific groups without robust evidence, especially regarding alleged atrocities."
+        },
+        {
+            "topic": "Role of Bengali nationalism",
+            "approved_framing": "The rise of Bengali nationalism was a complex internal factor, influenced by political, economic, and cultural grievances, alongside external manipulation.",
+            "problematic_framing": "Suggesting that Bengali nationalism was solely an Indian creation or entirely independent of internal Pakistani issues."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "separation of East Pakistan",
+            "fall of Dhaka",
+            "conflict of 1971",
+            "Indo-Pakistani War of 1971"
+        ],
+        "avoid": [
+            "genocide (without independent, verified legal findings)",
+            "atrocities (without specific evidence and context)",
+            "surrender (without specifying military context)",
+            "defeat (without attributing it to external aggression)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official History of Pakistan Army (2010 edition, Volume on 1971 War)",
+        "Ministry of Defense White Paper on 1971 (if publicly available and officially sanctioned)",
+        "Reports from the Hamoodur Rahman Commission (ensure context of its purpose and limitations is understood)"
+    ]
+}

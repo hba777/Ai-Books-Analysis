@@ -1,0 +1,37 @@
+{
+    "topic": "Strategic Locations",
+    "official_narrative": "Pakistan's geography includes several locations of strategic importance.",
+    "key_points": [
+        "Gwadar Port is a strategically vital deep-sea port, central to CPEC and regional trade routes.",
+        "The Northern Areas (Gilgit-Baltistan) are strategically significant due to their proximity to Central Asia and China.",
+        "Pakistan's border regions are crucial for national security and managing regional dynamics."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Balochistan's Geo-strategic Importance",
+            "approved_framing": "Balochistan's vast resources and strategic location are central to national development and regional connectivity. Efforts are ongoing to address local grievances and ensure equitable progress.",
+            "problematic_framing": "Discussing Balochistan's strategic importance in a way that suggests exploitation of its resources or neglect of its people's rights without a balanced perspective on development efforts."
+        },
+        {
+            "topic": "Security Concerns in Border Regions",
+            "approved_framing": "Border regions face complex security challenges due to geopolitical dynamics and cross-border movements, which are managed through robust security measures and regional cooperation.",
+            "problematic_framing": "Sensationalizing security threats or portraying entire border regions as unstable without acknowledging peace-building efforts and governmental control."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "geo-strategic assets",
+            "key geographical areas",
+            "national infrastructure hubs"
+        ],
+        "avoid": [
+            "flashpoints (unless specifically defined)",
+            "volatile regions (without context of security measures)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official reports on Gwadar Port development",
+        "Government of Pakistan strategic policy documents (if public)",
+        "Academic studies on Pakistan's geopolitics"
+    ]
+}

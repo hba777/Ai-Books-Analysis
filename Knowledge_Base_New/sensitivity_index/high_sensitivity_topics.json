@@ -1,0 +1,37 @@
+{
+    "topic": "High Sensitivity Topics",
+    "official_narrative": "Certain topics in Pakistan are considered highly sensitive, requiring careful handling and adherence to official narratives and legal frameworks.",
+    "key_points": [
+        "Religious issues, including blasphemy and sectarian matters, are highly sensitive due to their potential for social unrest.",
+        "Blasphemy laws are in place, and discussions around them require extreme caution and adherence to legal interpretations.",
+        "Ethnic conflicts, while often localized, are considered highly sensitive due to their potential to exacerbate social divisions."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Blasphemy Law Application",
+            "approved_framing": "The blasphemy laws are part of Pakistan's legal code, intended to protect religious sentiments. Cases are handled by the judiciary, and due process is emphasized.",
+            "problematic_framing": "Criticizing the laws without acknowledging their legal basis or the societal sensitivities they address, or misrepresenting their application."
+        },
+        {
+            "topic": "Sectarian Violence",
+            "approved_framing": "Pakistan is committed to combating sectarian violence through law enforcement and promoting interfaith harmony. Isolated incidents do not reflect widespread societal intolerance.",
+            "problematic_framing": "Exaggerating the scale of sectarian violence or portraying it as an uncontrollable societal norm."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "sensitive religious matters",
+            "legal framework for religious offenses",
+            "social cohesion topics"
+        ],
+        "avoid": [
+            "controversial laws (without specific context and alternative framing)",
+            "religious extremism (unless referring to designated terrorist groups)"
+        ]
+    },
+    "authoritative_sources": [
+        "Laws of Pakistan (Pakistan Penal Code, relevant sections)",
+        "Statements from the Ministry of Religious Affairs",
+        "Official human rights reports from Pakistan (if available)"
+    ]
+}

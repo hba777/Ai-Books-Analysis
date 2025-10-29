@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan-Saudi Arabia Relations",
+    "official_narrative": "Pakistan and Saudi Arabia share strong religious, cultural, and economic ties.",
+    "key_points": [
+        "Deep-rooted religious ties, including the importance of Saudi Arabia as the custodian of the Two Holy Mosques, form a strong bond.",
+        "Extensive economic cooperation, including trade, investment, and remittances from Pakistani expatriates.",
+        "Saudi Arabia has historically provided significant financial support and assistance to Pakistan."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Sectarian Influence",
+            "approved_framing": "The strong religious ties have contributed to cultural and social exchange, while Pakistan maintains its diverse religious identity.",
+            "problematic_framing": "Suggesting that Saudi Arabia dictates Pakistan's internal religious policy or promotes sectarianism within Pakistan."
+        },
+        {
+            "topic": "Military Cooperation and Regional Conflicts",
+            "approved_framing": "Military cooperation is based on mutual defense interests and regional stability. Pakistan's role in regional conflicts is guided by its own national interests.",
+            "problematic_framing": "Implying that Pakistan is a mercenary force for Saudi Arabia or blindly follows its foreign policy."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan-Saudi Arabia fraternal relations",
+            "strategic partnership",
+            "Islamic solidarity"
+        ],
+        "avoid": [
+            "patron-client relationship",
+            "dependency (without specific economic context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Joint communiques and statements from official visits",
+        "Ministry of Foreign Affairs (Pakistan) press releases",
+        "Economic cooperation agreements between the two countries"
+    ]
+}

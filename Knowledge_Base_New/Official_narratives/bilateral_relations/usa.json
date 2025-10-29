@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan-USA Relations",
+    "official_narrative": "Pakistan and the USA have a relationship marked by both cooperation and challenges.",
+    "key_points": [
+        "The 'War on Terror' significantly shaped the relationship, with Pakistan playing a key role as a frontline state.",
+        "The USA has provided significant aid and assistance to Pakistan in various sectors, including economic and military.",
+        "Shared strategic interests, particularly in regional stability and counter-terrorism, have driven cooperation."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Trust Deficit",
+            "approved_framing": "The relationship has experienced periods of mutual suspicion and misunderstanding, requiring ongoing efforts to build trust.",
+            "problematic_framing": "Asserting that the relationship is inherently untrustworthy or destined for conflict without nuanced explanation."
+        },
+        {
+            "topic": "Drone Strikes and Civilian Casualties",
+            "approved_framing": "Drone strikes have been a contentious issue. Pakistan has consistently advocated for international law and respect for sovereignty.",
+            "problematic_framing": "Using unverified casualty figures or making broad condemnations without acknowledging the complexities of counter-terrorism operations."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan-USA bilateral relations",
+            "strategic partnership",
+            "counter-terrorism cooperation"
+        ],
+        "avoid": [
+            "master-client relationship",
+            "puppet state (in reference to Pakistan's role)"
+        ]
+    },
+    "authoritative_sources": [
+        "Joint statements by Pakistani and US governments",
+        "US Department of State reports on Pakistan",
+        "Pakistani Ministry of Foreign Affairs official communications"
+    ]
+}

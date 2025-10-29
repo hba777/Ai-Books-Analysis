@@ -1,0 +1,37 @@
+{
+    "topic": "Kargil Conflict",
+    "official_narrative": "The Kargil conflict of 1999 was a limited war fought between India and Pakistan in the Kargil region of Kashmir.",
+    "key_points": [
+        "The Line of Control (LoC) was violated by Pakistani forces, leading to the conflict.",
+        "Pakistani infiltration across the LoC triggered the Indian counter-offensive.",
+        "The Indian Counter-Offensive led to intense fighting and eventual withdrawal of Pakistani forces."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Initiation of the Conflict",
+            "approved_framing": "The conflict began with the infiltration of Pakistani irregulars and some regular troops across the Line of Control into Indian-administered Kashmir.",
+            "problematic_framing": "Denying Pakistani involvement or solely blaming India for initiating the conflict."
+        },
+        {
+            "topic": "International Reaction",
+            "approved_framing": "The international community largely urged for the restoration of the sanctity of the Line of Control and a peaceful resolution.",
+            "problematic_framing": "Misrepresenting international support or condemnation for either side."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Kargil War",
+            "Kargil incursion",
+            "Kargil conflict"
+        ],
+        "avoid": [
+            "victory (for either side, given the limited nature and mixed outcomes)",
+            "aggression (without specifying context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official statements from the Government of Pakistan on Kargil",
+        "Reports by international observers and media (with careful vetting for bias)",
+        "Academic analyses of the Kargil conflict"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan-China Relations",
+    "official_narrative": "Pakistan and China enjoy a close and strategic partnership.",
+    "key_points": [
+        "The China-Pakistan Economic Corridor (CPEC) is a flagship project of bilateral cooperation, enhancing connectivity and infrastructure.",
+        "The relationship is characterized as a 'strategic partnership' based on shared interests and mutual trust.",
+        "Referred to as 'All-Weather Friends,' signifying the enduring and steadfast nature of the relationship."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "CPEC Debt and Transparency",
+            "approved_framing": "CPEC projects are financed through a mix of loans and investments, with transparency maintained as per bilateral agreements and international standards.",
+            "problematic_framing": "Claiming that CPEC is a 'debt trap' or lacking transparency without official data or verified reports."
+        },
+        {
+            "topic": "Impact on Gwadar Locals",
+            "approved_framing": "Development in Gwadar aims to benefit local populations through job creation and infrastructure improvements, with ongoing efforts to address community concerns.",
+            "problematic_framing": "Exaggerating negative impacts on local populations or suggesting widespread displacement without evidence."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan-China strategic partnership",
+            "all-weather friendship",
+            "bilateral cooperation"
+        ],
+        "avoid": [
+            "client state",
+            "Chinese dependency (without proper context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Joint statements by Pakistani and Chinese governments",
+        "Official CPEC authority publications",
+        "Ministry of Foreign Affairs statements on bilateral relations"
+    ]
+}

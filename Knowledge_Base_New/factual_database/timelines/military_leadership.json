@@ -1,0 +1,37 @@
+{
+    "topic": "Military Leadership",
+    "official_narrative": "The Pakistan military has had influential leaders who have shaped the country's history.",
+    "key_points": [
+        "Army Chiefs have played a critical role in defense, national security, and at times, political transitions.",
+        "Military leaders have occasionally taken on significant roles in politics, impacting the country's governance.",
+        "Their decisions and strategies have been central to Pakistan's defense posture and security policies."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Role in Overthrowing Civilian Governments",
+            "approved_framing": "Military interventions in politics have occurred at specific junctures in Pakistan's history, often in response to prevailing political or security conditions, leading to debates on civil-military relations.",
+            "problematic_framing": "Portraying military leaders as inherently anti-democratic or driven by personal ambition without considering the complex historical context."
+        },
+        {
+            "topic": "Accountability of Military Leaders",
+            "approved_framing": "Military leaders, like other public officials, are subject to accountability processes within the military justice system and, in some cases, civilian law.",
+            "problematic_framing": "Claiming that military leaders are entirely above the law or never held accountable without concrete evidence."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistani military commanders",
+            "defense leadership",
+            "armed forces chiefs"
+        ],
+        "avoid": [
+            "dictators (unless referring to specific historical periods of military rule)",
+            "tyrants (without factual basis)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official histories of the Pakistan Army",
+        "Biographies of military leaders (from reputable defense analysts or historians)",
+        "Academic studies on civil-military relations in Pakistan"
+    ]
+}

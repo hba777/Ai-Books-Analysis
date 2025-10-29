@@ -1,0 +1,37 @@
+{
+    "topic": "Contextual Sensitivity Rules",
+    "official_narrative": "Rules and guidelines exist for handling sensitive information, ensuring responsible communication and adherence to national interests.",
+    "key_points": [
+        "Official protocols govern the dissemination of information, especially on sensitive matters, to maintain national security and public order.",
+        "Legal frameworks, including cybercrime laws and defamation laws, exist to regulate content and prevent incitement or misinformation.",
+        "Ethical considerations are paramount in communication, emphasizing accuracy, responsibility, and avoiding content that could lead to social unrest or harm national interests."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Balancing Security and Transparency",
+            "approved_framing": "The government strives to balance national security imperatives with transparency, releasing information responsibly and in due course.",
+            "problematic_framing": "Accusing the government of excessive secrecy or suppression of information without acknowledging legitimate security concerns."
+        },
+        {
+            "topic": "Role of Media in Sensitive Topics",
+            "approved_framing": "Media plays a vital role in informing the public, with a responsibility to adhere to journalistic ethics and national laws when covering sensitive issues.",
+            "problematic_framing": "Accusing media of being state-controlled or biased without specific evidence of coercion, or ignoring instances of independent reporting."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "information handling guidelines",
+            "responsible communication protocols",
+            "national security communication"
+        ],
+        "avoid": [
+            "censorship rules (unless specifically referring to state-imposed censorship for defined reasons)",
+            "propaganda guidelines (without evidence)"
+        ]
+    },
+    "authoritative_sources": [
+        "Pakistan Electronic Media Regulatory Authority (PEMRA) codes of conduct",
+        "Cybercrime laws of Pakistan",
+        "Official guidelines for government communication"
+    ]
+}

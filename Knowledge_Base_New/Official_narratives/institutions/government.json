@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan Government",
+    "official_narrative": "The Government of Pakistan is responsible for the administration and governance of the country.",
+    "key_points": [
+        "Pakistan operates under a parliamentary system, with the Prime Minister as the head of government.",
+        "The Prime Minister leads the executive branch and is accountable to the Parliament.",
+        "Pakistan has a federal structure, with powers divided between the central government and the provinces."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Corruption Allegations",
+            "approved_framing": "Allegations of corruption are addressed through legal and accountability processes within the established institutional frameworks.",
+            "problematic_framing": "Making sweeping statements about systemic corruption without specific evidence or official findings."
+        },
+        {
+            "topic": "Democratic Stability",
+            "approved_framing": "Pakistan's democratic journey has faced challenges but continues to evolve, with efforts to strengthen institutions and processes.",
+            "problematic_framing": "Portraying Pakistan's democracy as inherently unstable or fragile without acknowledging periods of stability and progress."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Government of Pakistan",
+            "Pakistani authorities",
+            "state institutions"
+        ],
+        "avoid": [
+            "regime (unless referring to a specific non-democratic period)",
+            "corrupt government (without specific, verified charges)"
+        ]
+    },
+    "authoritative_sources": [
+        "Constitution of the Islamic Republic of Pakistan",
+        "Official websites of government ministries and departments",
+        "Parliamentary records and legislative documents"
+    ]
+}

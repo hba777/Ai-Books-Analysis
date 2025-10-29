@@ -1,0 +1,37 @@
+{
+    "topic": "Major Events",
+    "official_narrative": "Pakistan's history is marked by several major events that have had a significant impact on its trajectory.",
+    "key_points": [
+        "Wars with neighboring countries have shaped Pakistan's geopolitical landscape.",
+        "Significant political shifts, including coups and democratic transitions, have influenced governance.",
+        "Natural disasters have periodically impacted the country, leading to humanitarian responses and reconstruction efforts."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Contested Interpretations of Historical Events",
+            "approved_framing": "Historical events can have diverse interpretations. The official narrative provides a foundational understanding, while academic discourse allows for broader perspectives.",
+            "problematic_framing": "Presenting one interpretation as the sole truth while dismissing other historically documented viewpoints without justification."
+        },
+        {
+            "topic": "Socio-Political Unrest",
+            "approved_framing": "Periods of socio-political unrest reflect societal challenges and evolving dynamics, often leading to important reforms or shifts.",
+            "problematic_framing": "Sensationalizing or exaggerating the extent of unrest, or attributing it solely to external factors without considering internal causes."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "key historical moments",
+            "significant milestones",
+            "transformative events"
+        ],
+        "avoid": [
+            "crises (unless specific and defined)",
+            "failures (without balanced analysis)"
+        ]
+    },
+    "authoritative_sources": [
+        "Textbooks on Pakistan's history (approved by the curriculum board)",
+        "Official government reports on major events",
+        "Reputable historical archives and research institutions"
+    ]
+}

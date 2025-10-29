@@ -1,0 +1,37 @@
+{
+    "topic": "Disputed Territories",
+    "official_narrative": "Pakistan has disputes over certain territories, most notably Kashmir.",
+    "key_points": [
+        "Kashmir remains a core unresolved dispute, central to Pakistan's foreign policy.",
+        "The Line of Control (LoC) is the de facto boundary in Kashmir, often a site of tension.",
+        "Pakistan advocates for the implementation of UN Security Council resolutions for a peaceful resolution of the Kashmir dispute."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Human Rights in Disputed Territories",
+            "approved_framing": "Pakistan consistently raises concerns about human rights in Indian-occupied Kashmir, advocating for the right to self-determination as per UN resolutions.",
+            "problematic_framing": "Using unverified reports of human rights abuses or sensationalizing the situation without proper context or evidence."
+        },
+        {
+            "topic": "Cross-border Infiltration",
+            "approved_framing": "Pakistan maintains a strict border control policy and denies any state-sponsored infiltration, reiterating its commitment to peace.",
+            "problematic_framing": "Accusing Pakistan of sponsoring cross-border terrorism without conclusive, internationally verified evidence."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Kashmir dispute",
+            "disputed region",
+            "Line of Control (LoC)"
+        ],
+        "avoid": [
+            "Indian-occupied Kashmir (if addressing an Indian audience, use neutral terms like 'Indian-administered Kashmir')",
+            "Pakistani-occupied Kashmir (if addressing a Pakistani audience, use 'Azad Jammu and Kashmir')"
+        ]
+    },
+    "authoritative_sources": [
+        "UN Security Council resolutions on Kashmir",
+        "Ministry of Foreign Affairs (Pakistan) statements on Kashmir",
+        "International human rights reports (with critical evaluation)"
+    ]
+}

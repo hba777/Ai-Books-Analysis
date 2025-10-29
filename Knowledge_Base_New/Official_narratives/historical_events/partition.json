@@ -1,0 +1,37 @@
+{
+    "topic": "Partition",
+    "official_narrative": "The partition of British India in 1947 led to widespread violence and displacement.",
+    "key_points": [
+        "The Radcliffe Line demarcated the new borders between India and Pakistan.",
+        "Mass migrations occurred as millions of people moved across the newly created borders.",
+        "Widespread communal violence erupted during the Partition, leading to immense suffering."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Casualties and Displacement",
+            "approved_framing": "Millions were displaced, and hundreds of thousands lost their lives during the Partition. These figures represent a profound human tragedy.",
+            "problematic_framing": "Any unverified or inflated casualty figures that sensationalize the events without historical accuracy."
+        },
+        {
+            "topic": "Responsibility for Violence",
+            "approved_framing": "Violence during Partition was a complex phenomenon with multiple contributing factors, including long-standing communal tensions and administrative failures.",
+            "problematic_framing": "Singularly blaming one community or political entity for the violence."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Partition of India and Pakistan",
+            "post-independence migrations",
+            "communal unrest"
+        ],
+        "avoid": [
+            "genocide (unless specific, documented instances are referred to)",
+            "atrocities (without context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Works by Ayesha Jalal on Partition",
+        "Select documents from the National Archives of Pakistan",
+        "Academic studies on the human impact of Partition"
+    ]
+}

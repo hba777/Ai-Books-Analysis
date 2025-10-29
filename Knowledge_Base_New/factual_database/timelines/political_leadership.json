@@ -1,0 +1,37 @@
+{
+    "topic": "Political Leadership",
+    "official_narrative": "Pakistan has had a diverse range of political leaders throughout its history.",
+    "key_points": [
+        "The Founding Fathers, led by Muhammad Ali Jinnah, laid the foundation for Pakistan.",
+        "Numerous Prime Ministers have served, leading various governments and navigating periods of political change.",
+        "Presidents have held ceremonial and executive roles, depending on the constitutional framework at different times."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Allegations of Corruption and Misgovernance",
+            "approved_framing": "Allegations against political leaders are subject to legal processes and accountability mechanisms, reflecting the rule of law.",
+            "problematic_framing": "Making broad, unsubstantiated claims of corruption or misgovernance against all political leaders without specific verified charges."
+        },
+        {
+            "topic": "Military Coups and Civilian Rule",
+            "approved_framing": "Pakistan's history includes periods of both civilian and military rule, each with its own context and impact on political development.",
+            "problematic_framing": "Labeling all political leaders as weak or ineffective in comparison to military leaders, or vice versa, without a balanced perspective."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistani political figures",
+            "statesmen/stateswomen",
+            "government leaders"
+        ],
+        "avoid": [
+            "dynasties (unless discussing specific political families)",
+            "puppets (without specific context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Biographies of Pakistani political leaders (from reputable publishers)",
+        "Parliamentary archives and official government records",
+        "Constitutional history of Pakistan"
+    ]
+}

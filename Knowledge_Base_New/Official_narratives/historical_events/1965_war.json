@@ -1,0 +1,37 @@
+{
+    "topic": "1965 War",
+    "official_narrative": "The 1965 war with India was a result of conflict over the disputed territory of Kashmir.",
+    "key_points": [
+        "Operation Gibraltar was launched to infiltrate Kashmir and incite an uprising.",
+        "A ceasefire was eventually brokered by the United Nations, ending the conflict.",
+        "The Kashmir Dispute remained unresolved after the war, continuing to be a flashpoint."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Outcome of the War",
+            "approved_framing": "The 1965 war ended in a stalemate, with both sides claiming victory. It highlighted the ongoing tensions over Kashmir.",
+            "problematic_framing": "Declaring a decisive victory for either side without acknowledging the complex realities of the conflict and its resolution."
+        },
+        {
+            "topic": "Military Performance",
+            "approved_framing": "Both militaries demonstrated bravery and resilience, facing significant challenges during the conflict.",
+            "problematic_framing": "Derogatory remarks about the performance of either military or misrepresenting operational details."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "1965 Indo-Pak War",
+            "Second Kashmir War",
+            "conflict of 1965"
+        ],
+        "avoid": [
+            "decisive victory (for either side)",
+            "defeat (for either side)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official History of the Pakistan Army (1965 War volume)",
+        "Reports by the United Nations Observer Group in India and Pakistan (UNMOGIP)",
+        "Military analyses from reputable defense institutions"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "topic": "Economy of Pakistan",
+    "official_narrative": "Pakistan's economy is a developing economy with challenges and opportunities.",
+    "key_points": [
+        "GDP growth rates vary, reflecting global and domestic economic conditions, with efforts focused on sustainable growth.",
+        "Inflation is a key economic indicator, managed through monetary and fiscal policies to ensure price stability.",
+        "Key industries include agriculture, textiles, manufacturing, and services, contributing significantly to the national economy."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Debt and Fiscal Challenges",
+            "approved_framing": "Pakistan has faced fiscal challenges, including public debt, which are being addressed through economic reforms and international cooperation.",
+            "problematic_framing": "Exaggerating the severity of the debt crisis or portraying the economy as on the verge of collapse without considering resilience and reform efforts."
+        },
+        {
+            "topic": "Poverty and Inequality",
+            "approved_framing": "Poverty reduction and addressing income inequality remain key development goals, with various social safety nets and initiatives in place.",
+            "problematic_framing": "Presenting a bleak picture of widespread poverty without acknowledging progress in poverty reduction or government initiatives."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan's economic outlook",
+            "national economy",
+            "economic indicators"
+        ],
+        "avoid": [
+            "basket case economy",
+            "failed economy (without objective analysis)"
+        ]
+    },
+    "authoritative_sources": [
+        "State Bank of Pakistan reports and publications",
+        "Ministry of Finance Economic Surveys",
+        "International Monetary Fund (IMF) and World Bank country reports on Pakistan"
+    ]
+}

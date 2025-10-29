@@ -1,0 +1,37 @@
+{
+    "topic": "Intelligence Services",
+    "official_narrative": "Pakistan's intelligence services are responsible for gathering and analyzing information related to national security.",
+    "key_points": [
+        "The Inter-Services Intelligence (ISI) is Pakistan's premier intelligence agency, responsible for national security and foreign intelligence.",
+        "They are involved in intelligence gathering to preempt threats and safeguard national interests.",
+        "A key responsibility is counter-terrorism operations, both domestically and in cooperation with international partners."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Allegations of External Interference",
+            "approved_framing": "Intelligence agencies operate within the bounds of national interests, and their activities are often subject to speculation and unverified claims.",
+            "problematic_framing": "Accusing intelligence agencies of interference in other countries' affairs or supporting non-state actors without concrete, official evidence."
+        },
+        {
+            "topic": "Internal Operations and Surveillance",
+            "approved_framing": "Intelligence agencies conduct operations to ensure national security and counter threats within the country, adhering to legal frameworks.",
+            "problematic_framing": "Claiming widespread illegal surveillance or suppression of dissent without verifiable evidence."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "intelligence agencies",
+            "national intelligence apparatus",
+            "security services"
+        ],
+        "avoid": [
+            "deep state (unless discussing a specific academic concept)",
+            "rogue elements (without specific evidence)"
+        ]
+    },
+    "authoritative_sources": [
+        "Official statements from the Government of Pakistan regarding national security",
+        "Publicly available legal frameworks governing intelligence agencies (if any)",
+        "Reputable academic studies on intelligence and national security in Pakistan"
+    ]
+}

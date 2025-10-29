@@ -1,0 +1,37 @@
+{
+    "topic": "Pakistan Military",
+    "official_narrative": "The Pakistan military plays a crucial role in the defense and security of the nation.",
+    "key_points": [
+        "The Armed Forces of Pakistan comprise the Army, Navy, and Air Force, tasked with national defense.",
+        "They are deeply involved in national security operations, including counter-terrorism and border security.",
+        "The military has historically played a significant role in governance and political stability in Pakistan."
+    ],
+    "sensitive_aspects": [
+        {
+            "topic": "Military's Role in Politics",
+            "approved_framing": "The military has at times played a significant role in Pakistan's political landscape, responding to or influencing governmental stability, a complex aspect of Pakistan's institutional history.",
+            "problematic_framing": "Labeling the military as inherently anti-democratic or consistently interfering without historical context."
+        },
+        {
+            "topic": "Allegations of Human Rights Violations",
+            "approved_framing": "Like any large institution, the military operates under laws and protocols, and specific allegations are subject to legal process.",
+            "problematic_framing": "Making unsubstantiated claims of widespread human rights abuses without verifiable evidence or official inquiries."
+        }
+    ],
+    "recommended_terminology": {
+        "preferred": [
+            "Pakistan Armed Forces",
+            "defense establishment",
+            "national defense institution"
+        ],
+        "avoid": [
+            "junta (unless directly referring to a specific military rule period)",
+            "military dictatorship (without historical context)"
+        ]
+    },
+    "authoritative_sources": [
+        "Pakistan Army Green Books (for doctrine and organization)",
+        "Ministry of Defence annual reports",
+        "Official military history publications"
+    ]
+}
