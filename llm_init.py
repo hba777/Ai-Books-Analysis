@@ -14,23 +14,23 @@ embeddings = FastEmbedEmbeddings(model_name=os.getenv("embedding_model"))
 
 
 
-# llm = ChatOpenAI(
-# openai_api_base="http://192.168.18.100:8000/v1",
-# openai_api_key="EMPTY",
-# model_name="gpt-oss-20b"
-# )
+llm = ChatOpenAI(
+openai_api_base="http://192.168.18.100:8000/v1",
+openai_api_key="EMPTY",
+model_name="gpt-oss-20b"
+)
 
-# eval_llm = ChatOpenAI(
-#    openai_api_base="http://192.168.18.100:8000/v1",
-#    openai_api_key="EMPTY",
-#    model_name="gpt-oss-20b"
-# )
+eval_llm = ChatOpenAI(
+   openai_api_base="http://192.168.18.100:8000/v1",
+   openai_api_key="EMPTY",
+   model_name="gpt-oss-20b"
+)
 
-# llm1 = ChatOpenAI(
-#   openai_api_base="http://192.168.18.100:8000/v1",
-#   openai_api_key="EMPTY",
-#   model_name="gpt-oss-20b"
-# )
+llm1 = ChatOpenAI(
+  openai_api_base="http://192.168.18.100:8000/v1",
+  openai_api_key="EMPTY",
+  model_name="gpt-oss-20b"
+)
 
 from langchain_openai import ChatOpenAI
 

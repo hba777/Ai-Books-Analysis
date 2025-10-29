@@ -62,7 +62,7 @@ def save_results_to_mongo(
         # Core document
         result_document = {
             "timestamp": datetime.now(),
-            "doc_id": doc_id,
+            "book_id": doc_id,
             "Book Name": book_name,
             "Page Number": page_number,
             "Chunk_ID": chunk_uuid,
