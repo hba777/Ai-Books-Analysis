@@ -1,262 +1,169 @@
 import re
-import json
-from pymongo import MongoClient
-import pprint
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from pymongo import MongoClient
+from typing import List, Dict, Any
 
 # ------------------- Load Environment -------------------
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGO_URI")
-MONGO_DB_NAME = os.getenv("MONGO_DB_Agent")
+MONGO_DB_NAME = os.getenv("MONGO_DB_Agent")  # Corrected variable name to match .env structure
 MONGO_COLLECTION_NAME = os.getenv("MONGO_COLLECTION_Agent")
 
-# ------------------- All Reviews Data -------------------
-all_reviews = {
-    "National Security": {
-        "criteria": """ - Portrays military operations, strategies, or decisions in a negative light
- - Contradicts official narratives about wars (1965, 1971, etc.)
- - Reveals sensitive information about military or security operations
- - Suggests military failures or incompetence
- - Criticizes military leadership's decision-making""",
-        "confidence_score": 80
-    },
-    "Institutional Integrity": {
-        "criteria": """ - Undermines the reputation of state institutions (particularly the Army)
- - Suggests corruption, incompetence, or overreach by institutions
- - Portrays military rule as harmful to the country
- - Suggests institutional failures or abuses of power
- - Criticizes military or intelligence agencies' actions or motivations""",
-        "confidence_score": 80
-    },
-    "Historical Narrative Review": {
-        "criteria": """ - Contradicts official historical narratives about key events
- - Criticizes founding leaders or their decisions
- - Provides alternative interpretations of partition or creation of Pakistan
- - Presents the 1971 war in a way that differs from official narrative
- - Questions decisions made by historical leadership""",
-        "confidence_score": 80
-    },
-    "Foreign Relations Review": {
-        "criteria": """ - Contains criticism of allied nations (China, Saudi Arabia, Turkey, etc.)
- - Discusses sensitive topics related to allied nations
- - Makes comparisons that could offend foreign partners
- - Suggests policies or actions that contradict official foreign policy
- - Contains language that could harm bilateral relations""",
-        "confidence_score": 80
-    },
-    "Federal Unity Review": {
-        "criteria": """ - Creates or reinforces divisions between provinces or ethnic groups
- - Suggests preferential treatment of certain regions or ethnicities
- - Highlights historical grievances between regions
- - Portrays certain ethnic groups as dominating others
- - Discusses separatist movements or provincial alienation""",
-        "confidence_score": 80
-    },
-    "Rhetoric & Tone Review": {
-        "criteria": """ - Uses emotionally charged or inflammatory language
- - Contains sweeping generalizations or absolute statements
- - Uses rhetoric that could be divisive or provocative
- - Employs exaggeration or hyperbole on sensitive topics
- - Attributes motives without evidence""",
-        "confidence_score": 80
-    }
-}
+# --- MongoDB Connection Setup ---
+try:
+    if not MONGO_URI:
+        raise ValueError("MONGO_URI is not set in environment variables.")
+        
+    client = MongoClient(MONGO_URI)
+    db = client[MONGO_DB_NAME]
+    collection = db[MONGO_COLLECTION_NAME]
+    print(f"✅ Connected to MongoDB: Database='{MONGO_DB_NAME}', Collection='{MONGO_COLLECTION_NAME}'")
+except Exception as e:
+    print(f"❌ MongoDB Connection Error: {e}")
+    # Use a dummy collection for testing if connection fails, or exit
+    # For production code, you would exit here
+    client = None
+    db = None
+    collection = None
 
-# ------------------- Agent Extraction from File -------------------
-def extract_structured_content(text):
-    structured_data = []
-    agent_pattern = re.compile(
-        r"#######################################################(.*?)Agent\s*([\s\S]*?)(?=(?:#######################################################|$))",
-        re.DOTALL
-    )
-    matches = agent_pattern.findall(text)
-    skip_headings = {
-        "## Inputs",
-        "## Output JSON Schema",
-        "### Human Review",
-        "## Decision Algorithm (apply strictly)"
-    }
+def extract_and_store_agent_data(file_paths: List[str]):
+    """
+    Extracts the System Prompt, H2 headings, and constructs a document 
+    for each file, then stores it in MongoDB.
 
-    for agent_title, agent_content in matches:
-        agent_name = re.sub(r"^#+\s*", "", agent_title).strip()  # store as agent_name
-        sections = []
-        lines = agent_content.splitlines()
-        current_heading = None
-        current_content = []
+    Args:
+        file_paths (list): A list of full paths to the files.
+    """
+    if not collection:
+        print("🛑 Cannot process files: MongoDB collection not initialized.")
+        return
 
-        for line in lines:
-            if line.startswith("#"):
-                if current_heading or current_content:
-                    sections.append({
-                        "heading": current_heading,
-                        "content": "\n".join(current_content).strip()
-                    })
-                current_heading = line.strip()
-                current_content = []
+    # REGEX for H2 headings: Matches lines starting with '##', followed by optional whitespace,
+    # and strictly NOT followed by another '#'.
+    h2_heading_pattern = r'^(##[ \t\xa0]*)(?!\#)(.*)$'
+    
+    # Delimiter to find the end of the initial System Prompt block
+    delimiter_pattern = re.compile(r'^-+\s*$', re.MULTILINE)
+
+    # Specific headings to extract as separate fields
+    SPECIFIC_HEADINGS = [
+        "Primary Objective", 
+        "Knowledge Base", 
+        "Automatic Policy Actions", 
+        "Do NOT Flag"
+    ]
+
+    for file_path in file_paths:
+        agent_document: Dict[str, Any] = {}
+        
+        # --- 1. Extract Agent Name from File Path ---
+        # e.g., 'prompt1/National_Security.txt' -> 'National_Security'
+        base_name = os.path.basename(file_path)
+        agent_name = os.path.splitext(base_name)[0].replace('_', ' ')
+        agent_document["agent_name"] = agent_name
+        
+        try:
+            if not os.path.exists(file_path):
+                print(f"\n--- ⚠️ File not found: {file_path} ---")
+                continue
+
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            delimiter_match = delimiter_pattern.search(content)
+
+            if delimiter_match:
+                # --- 2. Extract System Prompt ---
+                system_prompt_text = content[:delimiter_match.start()].strip()
+                main_content_body = content[delimiter_match.end():].strip()
+                
+                agent_document["system_prompt"] = system_prompt_text
+                
+                # --- 3. Extract and Categorize H2 Headings and Content ---
+                
+                # Find all H2 headings and their content
+                # The regex captures the full heading line, including '##' and text.
+                # Since we need the content under the heading, we split the content 
+                # by the headings.
+                
+                # Find all heading matches
+                matches = list(re.finditer(h2_heading_pattern, main_content_body, re.MULTILINE))
+                
+                # Prepare dictionaries for storage
+                extracted_headings: Dict[str, str] = {}
+                
+                # Default arrays for lists/policy items
+                agent_document["user_knowledgebase"] = []
+                agent_document["user_policy_guidence"] = []
+
+                # Iterate through all matches to get heading and its content
+                for i, match in enumerate(matches):
+                    # The text of the heading (e.g., 'Primary Objective')
+                    heading_text = match.group(2).strip() 
+                    
+                    # The start of the current heading
+                    start = match.end()
+                    
+                    # The end of the content is the start of the next heading, or end of file
+                    end = matches[i+1].start() if i + 1 < len(matches) else len(main_content_body)
+                    
+                    # Content under the heading
+                    content_under_heading = main_content_body[start:end].strip()
+                    
+                    # Clean the content (e.g., remove list markers, empty lines)
+                    cleaned_content = content_under_heading.replace('*', '').replace('-', '').strip()
+                    
+                    # Store based on specific heading names (case-insensitive check)
+                    normalized_heading = heading_text.lower().replace('**', '').strip()
+                    
+                    if "knowledge base" in normalized_heading and cleaned_content:
+                        # Split by newline and filter out empty strings for array storage
+                        agent_document["user_knowledgebase"] = [line.strip() for line in cleaned_content.split('\n') if line.strip()]
+                    elif "policy actions" in normalized_heading and cleaned_content:
+                        # Split by newline and filter out empty strings for array storage
+                        agent_document["user_policy_guidence"] = [line.strip() for line in cleaned_content.split('\n') if line.strip()]
+                    elif heading_text.replace('**','').strip() in SPECIFIC_HEADINGS:
+                        # Store specific headings as separate fields
+                        key = heading_text.lower().replace(' ', '_').replace('**', '').replace('🎯_', '').replace('📘_', '').replace('🚫_', '').strip()
+                        agent_document[key] = cleaned_content
+                    else:
+                        # Store all other H2 headings in a generic dictionary
+                        extracted_headings[heading_text] = cleaned_content
+
+                
+                
+                # --- 4. Add Fixed/Template Fields ---
+                agent_document["type"] = "analysis"
+                agent_document["confidence_score"] = 80 # Stored as an integer
+                
+                # --- 5. Store in MongoDB ---
+                if collection:
+                    result = collection.insert_one(agent_document)
+                    print(f"✅ Stored document for '{agent_name}'. ID: {result.inserted_id}")
+                
             else:
-                current_content.append(line)
+                print(f"❌ Delimiter '---' not found in {file_path}. Skipping.")
+                
 
-        if current_heading or current_content:
-            sections.append({
-                "heading": current_heading,
-                "content": "\n".join(current_content).strip()
-            })
+        except Exception as e:
+            print(f"\n--- ❌ Error processing file {file_path}: {e} ---")
 
-        sections = [s for s in sections if s.get("heading") not in skip_headings]
-        structured_data.append({"agent_name": agent_name, "sections": sections})
+# --- Example Usage ---
 
-    return structured_data
+# Define the list of file paths based on your example.
+file_list = [
+    "prompt1/Federal_Unity.txt",
+    "prompt1/Instituitional_Integrity.txt",
+    "prompt1/National_Security.txt",
+    "prompt1/Rhetoric.txt",
+    "prompt1/Historical.txt",
+    "prompt1/Foreign_Policy.txt"
+]
 
-# ------------------- User Input -------------------
-def get_policy_guidance_input():
-    agent_name = input("Enter Agent Name: ")
-    main_category = input("Enter Main Category: ")
-    sub_category = input("Enter Sub Category: ")
-    topic = input("Enter Topic: ")
-
-    print("\nEnter Policy Guidance (one per line). Type END on a new line when finished:")
-    user_policy_guidance = []
-    while True:
-        line = input()
-        if line.strip().upper() == "END":
-            break
-        if line.strip():
-            user_policy_guidance.append(line.strip())
-
-    print("\nPaste JSON data for this topic. Type END on a new line when finished:")
-    lines = []
-    while True:
-        line = input()
-        if line.strip().upper() == "END":
-            break
-        lines.append(line)
-    json_data_str = "\n".join(lines)
-    try:
-        user_knowledgebase = json.loads(json_data_str)
-    except json.JSONDecodeError as e:
-        print(f"❌ Invalid JSON! Error: {e}")
-        return None
-
-    return {
-        "agent_name": agent_name,
-        "main_category": main_category,
-        "sub_category": sub_category,
-        "topic": topic,
-        "user_policy_guidance": user_policy_guidance,
-        "user_knowledgebase": user_knowledgebase
-    }
-
-# ------------------- MongoDB Operations -------------------
-def upsert_agent_document(agent_doc):
-    client = MongoClient(MONGO_URI)
-    db = client[MONGO_DB_NAME]
-    collection = db[MONGO_COLLECTION_NAME]
-
-    update_doc = {
-        "$setOnInsert": {
-            "sections": agent_doc.get("sections", []),
-            "user_policy_guidance": [],
-            "user_knowledgebase": [],
-            "type": "analysis"
-        }
-    }
-
-    collection.update_one({"agent_name": agent_doc["agent_name"]}, update_doc, upsert=True)
-    client.close()
-
-def merge_reviews_to_agents(reviews_data):
-    client = MongoClient(MONGO_URI)
-    db = client[MONGO_DB_NAME]
-    collection = db[MONGO_COLLECTION_NAME]
-
-    for agent_name, content in reviews_data.items():
-        update_doc = {
-            "$set": {
-                "criteria": content["criteria"],
-                "confidence_score": content.get("confidence_score"),
-                "type": "analysis"
-            },
-            "$setOnInsert": {
-                "user_policy_guidance": [],
-                "user_knowledgebase": []
-            }
-        }
-        collection.update_one({"agent_name": agent_name}, update_doc, upsert=True)
-
-    client.close()
-
-def display_agents():
-    client = MongoClient(MONGO_URI)
-    db = client[MONGO_DB_NAME]
-    collection = db[MONGO_COLLECTION_NAME]
-
-    print(f"\n--- Agents in Collection '{MONGO_COLLECTION_NAME}' ---")
-    for doc in collection.find({}):
-        print(f"Agent Name: {doc.get('agent_name')}")
-        print(f"Type: {doc.get('type')}")
-        print(f"Criteria:\n{doc.get('criteria', '')}")
-        print(f"Confidence Score: {doc.get('confidence_score', '')}")
-        print(f"Sections: {len(doc.get('sections', []))} sections")
-        print(f"User Policy Guidance: {doc.get('user_policy_guidance', [])}")
-        print(f"User Knowledgebase: {doc.get('user_knowledgebase', [])}")
-        print("-"*60)
-    client.close()
-
-# ------------------- Main Execution -------------------
-if __name__ == "__main__":
-    file_path = "Prompts Revised with KB - 28 Aug 25"
-
-    try:
-        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
-            text = f.read()
-    except FileNotFoundError:
-        print(f"❌ File '{file_path}' not found.")
-        text = None
-
-    if text:
-        extracted_agents = extract_structured_content(text)
-        for agent in extracted_agents:
-            upsert_agent_document(agent)
-            print(f"✅ Agent processed: {agent['agent_name']}")
-
-        merge_reviews_to_agents(all_reviews)
-        print("✅ All reviews merged into agents.")
-
-        agent_choice = input("\nDo you want to add User Policy Guidance & Knowledgebase? (yes/no): ").strip().lower()
-        agent_name = input("Enter Agent Name to display/add data: ").strip()
-
-        client = MongoClient(MONGO_URI)
-        db = client[MONGO_DB_NAME]
-        collection = db[MONGO_COLLECTION_NAME]
-
-        base_agent = collection.find_one({"agent_name": agent_name})
-        if not base_agent:
-            print(f"❌ No agent found with name: {agent_name}")
-        else:
-            if agent_choice == "yes":
-                doc = get_policy_guidance_input()
-                if doc:
-                    update_fields = {}
-                    if doc["user_policy_guidance"]:
-                        update_fields.setdefault("$push", {}).setdefault(
-                            "user_policy_guidance", {"$each": doc["user_policy_guidance"]}
-                        )
-                    if doc["user_knowledgebase"]:
-                        update_fields.setdefault("$push", {}).setdefault(
-                            "user_knowledgebase", {"$each": [doc["user_knowledgebase"]]}
-                        )
-                    update_fields.setdefault("$set", {}).update({
-                        "main_category": doc["main_category"],
-                        "sub_category": doc["sub_category"],
-                        "topic": doc["topic"]
-                    })
-                    collection.update_one({"agent_name": agent_name}, update_fields, upsert=True)
-                    print(f"\n✅ Updated Agent: {doc['agent_name']}")
-            else:
-                print(f"\n📄 Existing data for Agent: {agent_name}")
-                pprint.pprint(base_agent)
-
-        client.close()
-        display_agents()
+# Run the function
+# NOTE: Ensure the files in file_list exist in the correct location 
+# relative to where you run this script.
+# For example, create a 'prompt1' folder and put the files inside it.
+extract_and_store_agent_data(file_list)
